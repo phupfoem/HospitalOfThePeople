@@ -16,8 +16,8 @@ namespace HospitalOfThePeople
         const string _host = "localhost";
         const int _port = 1521;
         const string _sid = "orcl";
-        const string _username = "c##pfoem";
-        const string _passphrase = "pfoem";
+        const string _username = "c##common_user";
+        const string _passphrase = "commonpass";
         readonly OracleConnection conn = new OracleConnection(
             $"Data Source = ( DESCRIPTION = ( ADDRESS = (PROTOCOL = TCP)(HOST = {_host})(PORT = {_port}) ) ( CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = {_sid}) ) ); Password = {_passphrase}; User ID = {_username};"
         );
@@ -94,7 +94,7 @@ namespace HospitalOfThePeople
 
         private void BtnSignup_Click(object sender, System.EventArgs e)
         {
-            var fm = new FmMainMenu("", "PfoemPfoem0", "p1234567");
+            var fm = new FmMainMenu("", "c##common_user", "commonpass");
             fm.Show();
         }
 

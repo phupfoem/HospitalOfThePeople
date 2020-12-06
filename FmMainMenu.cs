@@ -56,7 +56,7 @@ namespace HospitalOfThePeople
             //Gender CHAR NOT NULL,
             //PhoneNo VARCHAR(20),
             //Address VARCHAR(20),
-            string sql = "INSERT INTO c##pfoem.Patient SELECT :Icn, :Fname, :LName, :BDate, :Gender, :PhoneNo, :Address FROM DUAL";
+            string sql = "INSERT INTO c##common_user.Patient SELECT :Icn, :Fname, :LName, :BDate, :Gender, :PhoneNo, :Address FROM DUAL";
             OracleCommand cmd = new OracleCommand(sql, conn);
 
             try
@@ -108,7 +108,7 @@ namespace HospitalOfThePeople
             //Gender CHAR NOT NULL,
             //PhoneNo VARCHAR(20),
             //Address VARCHAR(20),
-            OracleCommand cmd = new OracleCommand("SELECT * FROM c##pfoem.Patient WHERE 1=1", conn);
+            OracleCommand cmd = new OracleCommand("SELECT * FROM c##common_user.Patient WHERE 1=1", conn);
             try
             {
                 if (txtIcn.Text.Trim() != "")

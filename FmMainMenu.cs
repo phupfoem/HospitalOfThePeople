@@ -37,10 +37,6 @@ namespace HospitalOfThePeople
             _empId = empId;
         }
 
-        private void FmMainMenu_Load(object sender, EventArgs e)
-        {
-            conn.Open();
-        }
         private void FmMainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             conn.Close();
@@ -165,5 +161,13 @@ namespace HospitalOfThePeople
             this.Hide();
         }
 
+        private void FmMainMenu_Load(object sender, EventArgs e)
+        {
+            conn.Open();
+            this.btnAdd.Click += this.BtnAdd_Click;
+            this.btnAdmit.Click += this.BtnAdmit_Click;
+            this.btnLogout.Click += this.BtnLogout_Click;
+            this.FormClosing += this.FmMainMenu_FormClosing;
+        }
     }
 }

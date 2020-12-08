@@ -64,7 +64,6 @@ namespace HospitalOfThePeople
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += this.BtnAdd_Click;
             // 
             // btnAdmit
             // 
@@ -74,7 +73,6 @@ namespace HospitalOfThePeople
             this.btnAdmit.TabIndex = 3;
             this.btnAdmit.Text = "Admit";
             this.btnAdmit.UseVisualStyleBackColor = true;
-            this.btnAdmit.Click += this.BtnAdmit_Click;
             // 
             // btnLogout
             // 
@@ -202,10 +200,9 @@ namespace HospitalOfThePeople
             this.Controls.Add(this.lblIcn);
             this.Name = "FmMainMenu";
             this.Text = "Main Menu";
+            this.Load += new System.EventHandler(this.FmMainMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.Load += this.FmMainMenu_Load;
-            this.FormClosing += this.FmMainMenu_FormClosing;
 
         }
         #endregion

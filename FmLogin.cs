@@ -27,10 +27,6 @@ namespace HospitalOfThePeople
             InitializeComponent();
         }
 
-        private void FmLogin_Load(object sender, EventArgs e)
-        {
-            conn.Open();
-        }
 
         private void FmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -101,6 +97,15 @@ namespace HospitalOfThePeople
         private void BtnCancel_Click(object sender, System.EventArgs e)
         {
             this.Hide();
+        }
+
+        private void FmLogin_Load(object sender, EventArgs e)
+        {
+            conn.Open();
+            this.btnLogin.Click += this.BtnLogin_Click;
+            this.btnSignup.Click += this.BtnSignup_Click;
+            this.btCancel.Click += this.BtnCancel_Click;
+            this.FormClosing += this.FmLogin_FormClosing;
         }
     }
 }

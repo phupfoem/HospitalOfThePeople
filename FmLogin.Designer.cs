@@ -78,7 +78,6 @@ namespace HospitalOfThePeople
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Log In";
             this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += this.BtnLogin_Click;
             // 
             // btnSignup
             // 
@@ -88,7 +87,6 @@ namespace HospitalOfThePeople
             this.btnSignup.TabIndex = 5;
             this.btnSignup.Text = "Sign Up";
             this.btnSignup.UseVisualStyleBackColor = true;
-            this.btnSignup.Click += this.BtnSignup_Click;
             // 
             // btCancel
             // 
@@ -98,7 +96,6 @@ namespace HospitalOfThePeople
             this.btCancel.TabIndex = 6;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = true;
-            this.btCancel.Click += this.BtnCancel_Click;
             // 
             // FmLogin
             // 
@@ -114,10 +111,9 @@ namespace HospitalOfThePeople
             this.Controls.Add(this.lblUsername);
             this.Name = "FmLogin";
             this.Text = "Log In";
+            this.Load += new System.EventHandler(this.FmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.Load += this.FmLogin_Load;
-            this.FormClosing += this.FmLogin_FormClosing;
 
         }
         #endregion

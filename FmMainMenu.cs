@@ -158,7 +158,8 @@ namespace HospitalOfThePeople
 
         private void BtnLogout_Click(object sender, System.EventArgs e)
         {
-            this.Hide();
+            var fm = new FmEmp(conn);
+            fm.Show();
         }
 
         private void FmMainMenu_Load(object sender, EventArgs e)

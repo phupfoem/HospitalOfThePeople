@@ -27,7 +27,6 @@ namespace HospitalOfThePeople
             InitializeComponent();
         }
 
-
         private void FmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             conn.Close();
@@ -38,7 +37,7 @@ namespace HospitalOfThePeople
         {
             try
             {
-                OracleCommand cmd = new OracleCommand("FUN_IS_EMPLOYEE", conn)
+                OracleCommand cmd = new OracleCommand("c##common_user.FUN_IS_EMPLOYEE", conn)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -73,13 +72,14 @@ namespace HospitalOfThePeople
                         fm.Show();
                         break;
                     case "Manager":
-                        fm = new FmMainMenu(empId.Value.ToString(), txtUsername.Text, txtPassword.Text);
+                        OracleConnection conn = new OracleConnection($"Data Source = ( DESCRIPTION = ( ADDRESS = (PROTOCOL = TCP)(HOST = {_host})(PORT = {_port}) ) ( CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = {_sid}) ) ); Password = {txtPassword.Text}; User ID = {txtUsername.Text};");
+                        conn.Open();
+                        fm = new FmEmp(conn);
                         fm.Show();
                         break;
                     default:
                         MessageBox.Show("Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
-
                 }
             }
             catch (Exception err)
@@ -96,7 +96,7 @@ namespace HospitalOfThePeople
 
         private void BtnCancel_Click(object sender, System.EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void FmLogin_Load(object sender, EventArgs e)

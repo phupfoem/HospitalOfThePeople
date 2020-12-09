@@ -82,6 +82,12 @@
     <Compile Include="FmMainMenu.Designer.cs">
       <DependentUpon>FmMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FmEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmEmp.Designer.cs">
+      <DependentUpon>FmEmp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FmLogin.resx">
@@ -89,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FmMainMenu.resx">
       <DependentUpon>FmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmEmp.resx">
+      <DependentUpon>FmEmp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

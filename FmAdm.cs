@@ -16,7 +16,7 @@ namespace HospitalOfThePeople
     {
         const string _host = "localhost";
         const int _port = 1521;
-        const string _sid = "xe";
+        const string _sid = "orcl";
 
         readonly string _username;
         readonly string _passphrase;

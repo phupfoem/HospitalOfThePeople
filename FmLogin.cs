@@ -35,57 +35,7 @@ namespace HospitalOfThePeople
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OracleCommand cmd = new OracleCommand("c##common_user.FUN_IS_EMPLOYEE", conn)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
 
-                OracleParameter jobTitle = new OracleParameter("@Result", OracleDbType.Varchar2, 200)
-                {
-                    Direction = ParameterDirection.ReturnValue
-                };
-                cmd.Parameters.Add(jobTitle);
-
-                cmd.Parameters.Add("@i_username", OracleDbType.Varchar2, 200).Value = txtUsername.Text;
-                cmd.Parameters.Add("@i_password", OracleDbType.Varchar2, 200).Value = txtPassword.Text;
-
-                OracleParameter empId = new OracleParameter("@o_emp_id", OracleDbType.Varchar2, 200)
-                {
-                    Direction = ParameterDirection.Output
-                };
-                cmd.Parameters.Add(empId);
-
-                cmd.ExecuteNonQuery();
-
-                string ret = jobTitle.Value.ToString();
-                Form fm = null;
-                switch (ret)
-                {
-                    case "Nurse":
-                        fm = new FmMainMenu(empId.Value.ToString(), txtUsername.Text, txtPassword.Text);
-                        fm.Show();
-                        break;
-                    case "Doctor":
-                        fm = new FmMainMenu(empId.Value.ToString(), txtUsername.Text, txtPassword.Text);
-                        fm.Show();
-                        break;
-                    case "Manager":
-                        OracleConnection conn = new OracleConnection($"Data Source = ( DESCRIPTION = ( ADDRESS = (PROTOCOL = TCP)(HOST = {_host})(PORT = {_port}) ) ( CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = {_sid}) ) ); Password = {txtPassword.Text}; User ID = {txtUsername.Text};");
-                        conn.Open();
-                        fm = new FmEmp(conn);
-                        fm.Show();
-                        break;
-                    default:
-                        MessageBox.Show("Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                }
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show("Error" + err + err.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void BtnSignup_Click(object sender, System.EventArgs e)
@@ -102,6 +52,7 @@ namespace HospitalOfThePeople
         private void FmLogin_Load(object sender, EventArgs e)
         {
             conn.Open();
+            this.btnLogin.Click += this.BtnLogin_Click;
             this.btnLogin.Click += this.BtnLogin_Click;
             this.btnSignup.Click += this.BtnSignup_Click;
             this.btCancel.Click += this.BtnCancel_Click;

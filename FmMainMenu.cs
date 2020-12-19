@@ -54,7 +54,7 @@ namespace HospitalOfThePeople
             //Address VARCHAR(20),
             string sql = "INSERT INTO c##common_user.Patient SELECT :Icn, :Fname, :LName, :BDate, :Gender, :PhoneNo, :Address FROM DUAL";
             OracleCommand cmd = new OracleCommand(sql, conn);
-
+            
             try
             {
                 if (txtIcn.Text.Trim() != "")
@@ -82,11 +82,15 @@ namespace HospitalOfThePeople
                     cmd.Parameters.Add(":Gender", OracleDbType.Char).Value = txtGen.Text.Trim()[0];
                 }
 
-                cmd.Parameters.Add(":PhoneNo", OracleDbType.Varchar2, 20).Value = "";
+                if (txtPhone.Text.Trim() != "")
+                {
+                    cmd.Parameters.Add(":PhoneNo", OracleDbType.Varchar2, 20).Value = txtPhone.Text.Trim();
+                }
+
+                //cmd.Parameters.Add(":PhoneNo", OracleDbType.Varchar2, 20).Value = "";
                 cmd.Parameters.Add(":Address", OracleDbType.Varchar2, 20).Value = "";
 
                 int rowCount = cmd.ExecuteNonQuery();
-
                 Console.WriteLine(rowCount + " row(s) inserted.");
             }
             catch (Exception err)

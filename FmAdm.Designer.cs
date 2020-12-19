@@ -39,13 +39,15 @@ namespace HospitalOfThePeople
             this.txtTimeOut = new System.Windows.Forms.TextBox();
             this.btnAdmit = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtPIcn
             // 
             this.txtPIcn.Location = new System.Drawing.Point(143, 17);
             this.txtPIcn.Name = "txtPIcn";
-            this.txtPIcn.Size = new System.Drawing.Size(186, 22);
+            this.txtPIcn.Size = new System.Drawing.Size(192, 22);
             this.txtPIcn.TabIndex = 0;
             // 
             // lblPIcn
@@ -70,7 +72,7 @@ namespace HospitalOfThePeople
             // 
             this.txtNIcn.Location = new System.Drawing.Point(143, 59);
             this.txtNIcn.Name = "txtNIcn";
-            this.txtNIcn.Size = new System.Drawing.Size(186, 22);
+            this.txtNIcn.Size = new System.Drawing.Size(192, 22);
             this.txtNIcn.TabIndex = 2;
             // 
             // lblTimeIn
@@ -86,7 +88,7 @@ namespace HospitalOfThePeople
             // 
             this.txtTimeIn.Location = new System.Drawing.Point(143, 100);
             this.txtTimeIn.Name = "txtTimeIn";
-            this.txtTimeIn.Size = new System.Drawing.Size(186, 22);
+            this.txtTimeIn.Size = new System.Drawing.Size(192, 22);
             this.txtTimeIn.TabIndex = 4;
             // 
             // lblTimeOut
@@ -102,32 +104,52 @@ namespace HospitalOfThePeople
             // 
             this.txtTimeOut.Location = new System.Drawing.Point(143, 141);
             this.txtTimeOut.Name = "txtTimeOut";
-            this.txtTimeOut.Size = new System.Drawing.Size(186, 22);
+            this.txtTimeOut.Size = new System.Drawing.Size(192, 22);
             this.txtTimeOut.TabIndex = 6;
             // 
             // btnAdmit
             // 
-            this.btnAdmit.Location = new System.Drawing.Point(33, 184);
+            this.btnAdmit.Location = new System.Drawing.Point(33, 192);
             this.btnAdmit.Name = "btnAdmit";
-            this.btnAdmit.Size = new System.Drawing.Size(296, 46);
+            this.btnAdmit.Size = new System.Drawing.Size(148, 46);
             this.btnAdmit.TabIndex = 8;
             this.btnAdmit.Text = "Admit";
             this.btnAdmit.UseVisualStyleBackColor = true;
             // 
             // btnCheck
             // 
-            this.btnCheck.Location = new System.Drawing.Point(33, 252);
+            this.btnCheck.Location = new System.Drawing.Point(187, 192);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(296, 46);
+            this.btnCheck.Size = new System.Drawing.Size(148, 46);
             this.btnCheck.TabIndex = 9;
-            this.btnCheck.Text = "Check Information";
+            this.btnCheck.Text = "Find";
             this.btnCheck.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(33, 260);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(148, 46);
+            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(187, 260);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(148, 46);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // FmAdm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 339);
+            this.ClientSize = new System.Drawing.Size(362, 340);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.btnAdmit);
             this.Controls.Add(this.lblTimeOut);
@@ -140,7 +162,7 @@ namespace HospitalOfThePeople
             this.Controls.Add(this.txtPIcn);
             this.Name = "FmAdm";
             this.Text = "Admission Management";
-            this.Load += new System.EventHandler(FmAdm_Load);
+            this.Load += new System.EventHandler(this.FmAdm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +180,7 @@ namespace HospitalOfThePeople
         private System.Windows.Forms.TextBox txtTimeOut;
         private System.Windows.Forms.Button btnAdmit;
         private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

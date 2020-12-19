@@ -15,7 +15,7 @@ namespace HospitalOfThePeople
     {
         const string _host = "localhost";
         const int _port = 1521;
-        const string _sid = "orcl";
+        const string _sid = "xe";
         const string _username = "c##common_user";
         const string _passphrase = "commonpass";
         readonly OracleConnection conn = new OracleConnection(

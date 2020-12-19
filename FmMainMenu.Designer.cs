@@ -45,6 +45,7 @@ namespace HospitalOfThePeople
             this.txtLname = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtAddr = new System.Windows.Forms.TextBox();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblIcn
@@ -58,29 +59,30 @@ namespace HospitalOfThePeople
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(106, 141);
+            this.btnAdd.Location = new System.Drawing.Point(52, 131);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(85, 39);
+            this.btnAdd.Size = new System.Drawing.Size(250, 39);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // btnAdmit
             // 
-            this.btnAdmit.Location = new System.Drawing.Point(272, 141);
+            this.btnAdmit.Location = new System.Drawing.Point(52, 176);
             this.btnAdmit.Name = "btnAdmit";
-            this.btnAdmit.Size = new System.Drawing.Size(85, 39);
+            this.btnAdmit.Size = new System.Drawing.Size(250, 39);
             this.btnAdmit.TabIndex = 3;
-            this.btnAdmit.Text = "Admit";
+            this.btnAdmit.Text = "Admission Management";
             this.btnAdmit.UseVisualStyleBackColor = true;
+            this.btnAdmit.Click += new System.EventHandler(this.btnAdmit_Click_1);
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(440, 141);
+            this.btnLogout.Location = new System.Drawing.Point(308, 176);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(85, 39);
+            this.btnLogout.Size = new System.Drawing.Size(250, 39);
             this.btnLogout.TabIndex = 4;
-            this.btnLogout.Text = "Log Out";
+            this.btnLogout.Text = "Employee Management";
             this.btnLogout.UseVisualStyleBackColor = true;
             // 
             // lblName
@@ -177,11 +179,21 @@ namespace HospitalOfThePeople
             this.txtAddr.Size = new System.Drawing.Size(515, 22);
             this.txtAddr.TabIndex = 16;
             // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(308, 131);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(250, 39);
+            this.btnCheck.TabIndex = 17;
+            this.btnCheck.Text = "Check Information";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            // 
             // FmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 196);
+            this.ClientSize = new System.Drawing.Size(609, 247);
+            this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.txtAddr);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtLname);
@@ -223,5 +235,6 @@ namespace HospitalOfThePeople
         private System.Windows.Forms.TextBox txtLname;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtAddr;
+        private System.Windows.Forms.Button btnCheck;
     }
 }

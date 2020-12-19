@@ -17,7 +17,7 @@ namespace HospitalOfThePeople
     {
         const string _host = "localhost";
         const int _port = 1521;
-        const string _sid = "orcl";
+        const string _sid = "xe";
 
         readonly string _username;
         readonly string _passphrase;
@@ -101,6 +101,12 @@ namespace HospitalOfThePeople
 
         private void BtnAdmit_Click(object sender, System.EventArgs e)
         {
+            var fm = new FmAdm(_username, _passphrase);
+            fm.Show();
+        }
+
+        private void BtnCheck_Click(object sender, System.EventArgs e)
+        {
             //Icn CHAR(8) NOT NULL,
             //FName VARCHAR(20) NOT NULL,
             //LName VARCHAR(20) NOT NULL,
@@ -171,8 +177,14 @@ namespace HospitalOfThePeople
             conn.Open();
             this.btnAdd.Click += this.BtnAdd_Click;
             this.btnAdmit.Click += this.BtnAdmit_Click;
+            this.btnCheck.Click += this.BtnCheck_Click;
             this.btnLogout.Click += this.BtnLogout_Click;
             this.FormClosing += this.FmMainMenu_FormClosing;
+        }
+
+        private void btnAdmit_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

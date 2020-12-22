@@ -70,6 +70,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBFormHelper.cs" />
+    <Compile Include="DBUtils.cs" />
+    <Compile Include="FmAdmission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmAdmission.Designer.cs">
+      <DependentUpon>FmAdmission.cs</DependentUpon>
+    </Compile>
     <Compile Include="FmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,22 +90,70 @@
     <Compile Include="FmMainMenu.Designer.cs">
       <DependentUpon>FmMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmEmp.cs">
+    <Compile Include="FmEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmEmp.Designer.cs">
-      <DependentUpon>FmEmp.cs</DependentUpon>
+    <Compile Include="FmEmployee.Designer.cs">
+      <DependentUpon>FmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmDepartment.Designer.cs">
+      <DependentUpon>FmDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmRoom.Designer.cs">
+      <DependentUpon>FmRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmEquipment.Designer.cs">
+      <DependentUpon>FmEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmPatient.Designer.cs">
+      <DependentUpon>FmPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmGuardian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmGuardian.Designer.cs">
+      <DependentUpon>FmGuardian.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FmAdmission.resx">
+      <DependentUpon>FmAdmission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmDepartment.resx">
+      <DependentUpon>FmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmEquipment.resx">
+      <DependentUpon>FmEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmGuardian.resx">
+      <DependentUpon>FmGuardian.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FmLogin.resx">
       <DependentUpon>FmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FmMainMenu.resx">
       <DependentUpon>FmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmEmp.resx">
-      <DependentUpon>FmEmp.cs</DependentUpon>
+    <EmbeddedResource Include="FmEmployee.resx">
+      <DependentUpon>FmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmPatient.resx">
+      <DependentUpon>FmPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmRoom.resx">
+      <DependentUpon>FmRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

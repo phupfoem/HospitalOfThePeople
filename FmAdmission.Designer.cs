@@ -1,7 +1,7 @@
 ﻿
 namespace HospitalOfThePeople
 {
-    partial class FmAdm
+    partial class FmAdmission
     {
         /// <summary>
         /// Required designer variable.
@@ -162,7 +162,6 @@ namespace HospitalOfThePeople
             this.Controls.Add(this.txtPIcn);
             this.Name = "FmAdm";
             this.Text = "Admission Management";
-            this.Load += new System.EventHandler(this.FmAdm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

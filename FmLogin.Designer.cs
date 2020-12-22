@@ -34,7 +34,6 @@ namespace HospitalOfThePeople
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnSignup = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -58,6 +57,7 @@ namespace HospitalOfThePeople
             // 
             this.txtPassword.Location = new System.Drawing.Point(100, 45);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(341, 22);
             this.txtPassword.TabIndex = 3;
             // 
@@ -72,25 +72,16 @@ namespace HospitalOfThePeople
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(58, 84);
+            this.btnLogin.Location = new System.Drawing.Point(100, 86);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(89, 31);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Log In";
             this.btnLogin.UseVisualStyleBackColor = true;
             // 
-            // btnSignup
-            // 
-            this.btnSignup.Location = new System.Drawing.Point(182, 84);
-            this.btnSignup.Name = "btnSignup";
-            this.btnSignup.Size = new System.Drawing.Size(93, 31);
-            this.btnSignup.TabIndex = 5;
-            this.btnSignup.Text = "Sign Up";
-            this.btnSignup.UseVisualStyleBackColor = true;
-            // 
             // btCancel
             // 
-            this.btCancel.Location = new System.Drawing.Point(311, 84);
+            this.btCancel.Location = new System.Drawing.Point(269, 86);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(93, 31);
             this.btCancel.TabIndex = 6;
@@ -103,7 +94,6 @@ namespace HospitalOfThePeople
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 129);
             this.Controls.Add(this.btCancel);
-            this.Controls.Add(this.btnSignup);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lblPassword);
@@ -111,7 +101,6 @@ namespace HospitalOfThePeople
             this.Controls.Add(this.lblUsername);
             this.Name = "FmLogin";
             this.Text = "Log In";
-            this.Load += new System.EventHandler(this.FmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,7 +112,6 @@ namespace HospitalOfThePeople
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnSignup;
         private System.Windows.Forms.Button btCancel;
     }
 }

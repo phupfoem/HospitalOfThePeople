@@ -1,7 +1,7 @@
 ﻿
 namespace HospitalOfThePeople
 {
-    partial class FmEmp
+    partial class FmEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -371,7 +371,6 @@ namespace HospitalOfThePeople
             this.Controls.Add(this.lblIcn);
             this.Name = "FmEmp";
             this.Text = "Employee Management";
-            this.Load += new System.EventHandler(this.FmEmp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

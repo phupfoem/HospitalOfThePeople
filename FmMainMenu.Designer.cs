@@ -34,17 +34,17 @@ namespace HospitalOfThePeople
             this.btnAdmit = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
-            this.lblAddr = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
-            this.lblGen = new System.Windows.Forms.Label();
+            this.lblAddr = new System.Windows.Forms.Label();
             this.lblBdate = new System.Windows.Forms.Label();
+            this.lblGen = new System.Windows.Forms.Label();
             this.txtIcn = new System.Windows.Forms.TextBox();
-            this.txtBdate = new System.Windows.Forms.TextBox();
-            this.txtGen = new System.Windows.Forms.TextBox();
-            this.txtFname = new System.Windows.Forms.TextBox();
-            this.txtLname = new System.Windows.Forms.TextBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtAddr = new System.Windows.Forms.TextBox();
+            this.txtBDate = new System.Windows.Forms.TextBox();
+            this.txtGender = new System.Windows.Forms.TextBox();
+            this.txtFName = new System.Windows.Forms.TextBox();
+            this.txtLName = new System.Windows.Forms.TextBox();
+            this.txtPhoneNo = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.btnCheck = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -74,7 +74,6 @@ namespace HospitalOfThePeople
             this.btnAdmit.TabIndex = 3;
             this.btnAdmit.Text = "Admission Management";
             this.btnAdmit.UseVisualStyleBackColor = true;
-            this.btnAdmit.Click += new System.EventHandler(this.btnAdmit_Click_1);
             // 
             // btnLogout
             // 
@@ -94,15 +93,6 @@ namespace HospitalOfThePeople
             this.lblName.TabIndex = 5;
             this.lblName.Text = "Name:";
             // 
-            // lblAddr
-            // 
-            this.lblAddr.AutoSize = true;
-            this.lblAddr.Location = new System.Drawing.Point(12, 96);
-            this.lblAddr.Name = "lblAddr";
-            this.lblAddr.Size = new System.Drawing.Size(64, 17);
-            this.lblAddr.TabIndex = 7;
-            this.lblAddr.Text = "Address:";
-            // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
@@ -112,14 +102,14 @@ namespace HospitalOfThePeople
             this.lblPhone.TabIndex = 6;
             this.lblPhone.Text = "Phone Number:";
             // 
-            // lblGen
+            // lblAddr
             // 
-            this.lblGen.AutoSize = true;
-            this.lblGen.Location = new System.Drawing.Point(447, 18);
-            this.lblGen.Name = "lblGen";
-            this.lblGen.Size = new System.Drawing.Size(60, 17);
-            this.lblGen.TabIndex = 9;
-            this.lblGen.Text = "Gender:";
+            this.lblAddr.AutoSize = true;
+            this.lblAddr.Location = new System.Drawing.Point(12, 96);
+            this.lblAddr.Name = "lblAddr";
+            this.lblAddr.Size = new System.Drawing.Size(64, 17);
+            this.lblAddr.TabIndex = 7;
+            this.lblAddr.Text = "Address:";
             // 
             // lblBdate
             // 
@@ -130,6 +120,15 @@ namespace HospitalOfThePeople
             this.lblBdate.TabIndex = 8;
             this.lblBdate.Text = "Birthdate:";
             // 
+            // lblGen
+            // 
+            this.lblGen.AutoSize = true;
+            this.lblGen.Location = new System.Drawing.Point(447, 18);
+            this.lblGen.Name = "lblGen";
+            this.lblGen.Size = new System.Drawing.Size(60, 17);
+            this.lblGen.TabIndex = 9;
+            this.lblGen.Text = "Gender:";
+            // 
             // txtIcn
             // 
             this.txtIcn.Location = new System.Drawing.Point(52, 15);
@@ -137,47 +136,47 @@ namespace HospitalOfThePeople
             this.txtIcn.Size = new System.Drawing.Size(180, 22);
             this.txtIcn.TabIndex = 10;
             // 
-            // txtBdate
+            // txtBDate
             // 
-            this.txtBdate.Location = new System.Drawing.Point(305, 15);
-            this.txtBdate.Name = "txtBdate";
-            this.txtBdate.Size = new System.Drawing.Size(136, 22);
-            this.txtBdate.TabIndex = 11;
+            this.txtBDate.Location = new System.Drawing.Point(305, 15);
+            this.txtBDate.Name = "txtBDate";
+            this.txtBDate.Size = new System.Drawing.Size(136, 22);
+            this.txtBDate.TabIndex = 11;
             // 
-            // txtGen
+            // txtGender
             // 
-            this.txtGen.Location = new System.Drawing.Point(512, 13);
-            this.txtGen.Name = "txtGen";
-            this.txtGen.Size = new System.Drawing.Size(85, 22);
-            this.txtGen.TabIndex = 12;
+            this.txtGender.Location = new System.Drawing.Point(512, 13);
+            this.txtGender.Name = "txtGender";
+            this.txtGender.Size = new System.Drawing.Size(85, 22);
+            this.txtGender.TabIndex = 12;
             // 
-            // txtFname
+            // txtFName
             // 
-            this.txtFname.Location = new System.Drawing.Point(67, 41);
-            this.txtFname.Name = "txtFname";
-            this.txtFname.Size = new System.Drawing.Size(241, 22);
-            this.txtFname.TabIndex = 13;
+            this.txtFName.Location = new System.Drawing.Point(67, 41);
+            this.txtFName.Name = "txtFName";
+            this.txtFName.Size = new System.Drawing.Size(241, 22);
+            this.txtFName.TabIndex = 13;
             // 
-            // txtLname
+            // txtLName
             // 
-            this.txtLname.Location = new System.Drawing.Point(327, 41);
-            this.txtLname.Name = "txtLname";
-            this.txtLname.Size = new System.Drawing.Size(270, 22);
-            this.txtLname.TabIndex = 14;
+            this.txtLName.Location = new System.Drawing.Point(327, 41);
+            this.txtLName.Name = "txtLName";
+            this.txtLName.Size = new System.Drawing.Size(270, 22);
+            this.txtLName.TabIndex = 14;
             // 
-            // txtPhone
+            // txtPhoneNo
             // 
-            this.txtPhone.Location = new System.Drawing.Point(125, 67);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(472, 22);
-            this.txtPhone.TabIndex = 15;
+            this.txtPhoneNo.Location = new System.Drawing.Point(125, 67);
+            this.txtPhoneNo.Name = "txtPhoneNo";
+            this.txtPhoneNo.Size = new System.Drawing.Size(472, 22);
+            this.txtPhoneNo.TabIndex = 15;
             // 
-            // txtAddr
+            // txtAddress
             // 
-            this.txtAddr.Location = new System.Drawing.Point(82, 93);
-            this.txtAddr.Name = "txtAddr";
-            this.txtAddr.Size = new System.Drawing.Size(515, 22);
-            this.txtAddr.TabIndex = 16;
+            this.txtAddress.Location = new System.Drawing.Point(82, 93);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(515, 22);
+            this.txtAddress.TabIndex = 16;
             // 
             // btnCheck
             // 
@@ -192,14 +191,14 @@ namespace HospitalOfThePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 247);
+            this.ClientSize = new System.Drawing.Size(609, 233);
             this.Controls.Add(this.btnCheck);
-            this.Controls.Add(this.txtAddr);
-            this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.txtLname);
-            this.Controls.Add(this.txtFname);
-            this.Controls.Add(this.txtGen);
-            this.Controls.Add(this.txtBdate);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.txtPhoneNo);
+            this.Controls.Add(this.txtLName);
+            this.Controls.Add(this.txtFName);
+            this.Controls.Add(this.txtGender);
+            this.Controls.Add(this.txtBDate);
             this.Controls.Add(this.txtIcn);
             this.Controls.Add(this.lblGen);
             this.Controls.Add(this.lblBdate);
@@ -212,7 +211,6 @@ namespace HospitalOfThePeople
             this.Controls.Add(this.lblIcn);
             this.Name = "FmMainMenu";
             this.Text = "Main Menu";
-            this.Load += new System.EventHandler(this.FmMainMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,17 +222,17 @@ namespace HospitalOfThePeople
         private System.Windows.Forms.Button btnAdmit;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblAddr;
         private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.Label lblGen;
+        private System.Windows.Forms.Label lblAddr;
         private System.Windows.Forms.Label lblBdate;
+        private System.Windows.Forms.Label lblGen;
         private System.Windows.Forms.TextBox txtIcn;
-        private System.Windows.Forms.TextBox txtBdate;
-        private System.Windows.Forms.TextBox txtGen;
-        private System.Windows.Forms.TextBox txtFname;
-        private System.Windows.Forms.TextBox txtLname;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.TextBox txtAddr;
+        private System.Windows.Forms.TextBox txtBDate;
+        private System.Windows.Forms.TextBox txtGender;
+        private System.Windows.Forms.TextBox txtFName;
+        private System.Windows.Forms.TextBox txtLName;
+        private System.Windows.Forms.TextBox txtPhoneNo;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Button btnCheck;
     }
 }

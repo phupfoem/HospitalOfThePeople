@@ -38,8 +38,8 @@ namespace HospitalOfThePeople
                 new DBFormHelper.AttributeType[] {
                     new DBFormHelper.AttributeType("RNo", OracleDbType.Char, 5, txtRNo)
                 },
-                //c##common_user.Room
-                "c##common_user.Room"
+                //hospital_dba.Room
+                "hospital_dba.Room"
             );
         }
 

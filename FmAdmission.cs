@@ -39,8 +39,8 @@ namespace HospitalOfThePeople
                     new DBFormHelper.AttributeType("PIcn", OracleDbType.Char, 8, txtPIcn),
                     new DBFormHelper.AttributeType("TimeIn", OracleDbType.Date, null, txtTimeIn)
                 },
-                //c##common_user.Admission
-                "c##common_user.Admission"
+                //hospital_dba.Admission
+                "hospital_dba.Admission"
             );
         }
 

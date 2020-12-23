@@ -12,12 +12,7 @@ namespace HospitalOfThePeople
             public OracleDbType Type { get; }
             public int? Size { get; }
             public string Value { get; }
-            public ParameterDirection? Direction { get; }
-
-            public AttributeType()
-            {
-
-            }
+            public ParameterDirection Direction { get; }
 
             public AttributeType(string name, OracleDbType type, int? size, string value)
             {
@@ -25,7 +20,7 @@ namespace HospitalOfThePeople
                 Type = type;
                 Size = size;
                 Value = value;
-                Direction = null;
+                Direction = ParameterDirection.Input;
             }
 
             public AttributeType(string name, OracleDbType type, int? size, string value, ParameterDirection? direction)
@@ -34,7 +29,7 @@ namespace HospitalOfThePeople
                 Type = type;
                 Size = size;
                 Value = value;
-                Direction = direction;
+                Direction = direction?? default;
             }
         }
 
@@ -58,7 +53,7 @@ namespace HospitalOfThePeople
             if (conn.State != ConnectionState.Open)
                 throw new ArgumentOutOfRangeException("conn");
 
-            string val = String.Join(", ", parms.Select(_ => ":" + _.Name).ToArray());
+            string val = String.Join(", ", parms.Select(_ => ":" + _.Name));
 
             string sql = $"INSERT INTO {table}\nVALUES({val})";
 
@@ -95,23 +90,25 @@ namespace HospitalOfThePeople
             if (conds == null)
                 conds = new AttributeType[0];
 
-            string val = String.Join(", ", parms.Select(_ => _.Name + " = :0" + _.Name).ToArray());
+            string val = String.Join(", ", parms.Select(_ => _.Name + " = :" + _.Name + "1"));
             string sql = $"UPDATE {table}\nSET {val}";
 
-            val = String.Join(" AND ", conds.Select(_ => _.Name + " = :1" + _.Name).ToArray());
-            if (val != "")
+            if (conds.Length != 0)
+            {
+                val = String.Join(" AND ", conds.Select(_ => _.Name + " = :" + _.Name + "2"));
                 sql += $"\nWHERE {val}";
+            }
 
             OracleCommand cmd = new OracleCommand(sql, conn);
 
             foreach (var parm in parms)
             {
-                AddSqlParm(new AttributeType(":0" + parm.Name, parm.Type, parm.Size, parm.Value), ref cmd);
+                AddSqlParm(new AttributeType(":" + parm.Name + "1", parm.Type, parm.Size, parm.Value), ref cmd);
             }
 
             foreach (var cond in conds)
             {
-                AddSqlParm(new AttributeType(":1" + cond.Name, cond.Type, cond.Size, cond.Value), ref cmd);
+                AddSqlParm(new AttributeType(":" + cond.Name + "2", cond.Type, cond.Size, cond.Value), ref cmd);
             }
 
             return cmd;
@@ -137,7 +134,7 @@ namespace HospitalOfThePeople
             if (conn.State != ConnectionState.Open)
                 throw new ArgumentOutOfRangeException("conn");
 
-            string val = String.Join(" AND ", conds.Select(_ => _.Name + " = :" + _.Name).ToArray());
+            string val = String.Join(" AND ", conds.Select(_ => _.Name + " = :" + _.Name));
             string sql = $"DELETE FROM {table}\nWHERE {val}";
 
             OracleCommand cmd = new OracleCommand(sql, conn);
@@ -173,9 +170,11 @@ namespace HospitalOfThePeople
             string selectedAttr = parms == null? "*": String.Join(", ", parms);
             string sql = $"SELECT {selectedAttr}\nFROM {table}";
 
-            string val = String.Join(" AND ", conds.Select(_ => _.Name + " = :" + _.Name).ToArray());
             if (conds.Length != 0)
+            {
+                string val = String.Join(" AND ", conds.Select(_ => _.Name + " = :" + _.Name));
                 sql += $"\nWHERE {val}";
+            }
 
             OracleCommand cmd = new OracleCommand(sql, conn);
 
@@ -217,7 +216,7 @@ namespace HospitalOfThePeople
 
             foreach (var parm in parms)
             {
-                AddSqlParm(new AttributeType(parm.Name, parm.Type, parm.Size, parm.Value, parm.Direction), ref cmd);
+                AddSqlParm(parm, ref cmd);
             }
 
             return cmd;
@@ -288,8 +287,7 @@ namespace HospitalOfThePeople
                     throw new ArgumentOutOfRangeException("parm");
             }
 
-            if (parm.Direction != null)
-                cmd.Parameters[parm.Name].Direction = parm.Direction?? default;
+            cmd.Parameters[parm.Name].Direction = parm.Direction;
         }
     }
 }

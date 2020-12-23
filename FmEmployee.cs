@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Common;
 using Oracle.DataAccess.Client;
-using System.Data.SqlClient;
 
 namespace HospitalOfThePeople
 {
@@ -46,7 +38,6 @@ namespace HospitalOfThePeople
                     DNo CHAR(2) NOT NULL,
                     Job VARCHAR(20) NOT NULL,
                     Username VARCHAR(50) UNIQUE NOT NULL,
-                    Password VARCHAR(50) NOT NULL,
                 */
                 new DBFormHelper.AttributeType[] {
                     new DBFormHelper.AttributeType("Icn", OracleDbType.Char, 8, txtIcn),
@@ -61,15 +52,14 @@ namespace HospitalOfThePeople
                     new DBFormHelper.AttributeType("Salary", OracleDbType.Decimal, null, txtSalary),
                     new DBFormHelper.AttributeType("DNo", OracleDbType.Char, 2, txtDNo),
                     new DBFormHelper.AttributeType("Job", OracleDbType.Varchar2, 20, txtJob),
-                    new DBFormHelper.AttributeType("Username", OracleDbType.Varchar2, 50, txtUsername),
-                    new DBFormHelper.AttributeType("Password", OracleDbType.Varchar2, 50, txtPassword)
+                    new DBFormHelper.AttributeType("Username", OracleDbType.Varchar2, 50, txtUsername)
                 },
                 //CONSTRAINT PK_Employee PRIMARY KEY(Icn),
                 new DBFormHelper.AttributeType[] {
                     new DBFormHelper.AttributeType("Icn", OracleDbType.Char, 8, txtIcn)
                 },
-                //c##common_user.Employee
-                "c##common_user.Employee"
+                //hospital_dba.Employee
+                "hospital_dba.Employee"
             );
 
             _dbDoctorHelper = new DBFormHelper(
@@ -85,8 +75,8 @@ namespace HospitalOfThePeople
                 new DBFormHelper.AttributeType[] {
                     new DBFormHelper.AttributeType("Icn", OracleDbType.Char, 8, txtIcn)
                 },
-                //c##common_user.Doctor
-                "c##common_user.Doctor"
+                //hospital_dba.Doctor
+                "hospital_dba.Doctor"
             );
 
             _dbNurseHelper = new DBFormHelper(
@@ -100,8 +90,8 @@ namespace HospitalOfThePeople
                 new DBFormHelper.AttributeType[] {
                     new DBFormHelper.AttributeType("Icn", OracleDbType.Char, 8, txtIcn)
                 },
-                //c##common_user.Nurse
-                "c##common_user.Nurse"
+                //hospital_dba.Nurse
+                "hospital_dba.Nurse"
             );
         }
 
@@ -130,9 +120,7 @@ namespace HospitalOfThePeople
                     if (!reader.HasRows)
                         MessageBox.Show("Employee not found.", "Error", MessageBoxButtons.OK);
                     else
-                    {
                         _dbEmployeeHelper.Read(reader);
-                    }
                 }
 
                 if (txtJob.Text.Trim() == "Doctor")

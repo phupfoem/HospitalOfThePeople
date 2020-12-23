@@ -44,8 +44,8 @@ namespace HospitalOfThePeople
                 new DBFormHelper.AttributeType[] {
                     new DBFormHelper.AttributeType("Icn", OracleDbType.Char, 8, txtIcn)
                 },
-                //c##common_user.Patient
-                "c##common_user.Patient"
+                //hospital_dba.Patient
+                "hospital_dba.Patient"
             );
         }
 

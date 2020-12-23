@@ -41,8 +41,8 @@ namespace HospitalOfThePeople
                     new DBFormHelper.AttributeType("PIcn", OracleDbType.Char, 8, txtPIcn),
                     new DBFormHelper.AttributeType("PhoneNo", OracleDbType.Varchar2, 20, txtPhoneNo)
                 },
-                //c##common_user.Guardian
-                "c##common_user.Guardian"
+                //hospital_dba.Guardian
+                "hospital_dba.Guardian"
             );
         }
 

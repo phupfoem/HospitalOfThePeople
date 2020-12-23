@@ -40,8 +40,8 @@ namespace HospitalOfThePeople
                 new DBFormHelper.AttributeType[] {
                     new DBFormHelper.AttributeType("ENo", OracleDbType.Char, 8, txtENo),
                 },
-                //c##common_user.Equipment
-                "c##common_user.Equipment"
+                //hospital_dba.Equipment
+                "hospital_dba.Equipment"
             );
         }
 

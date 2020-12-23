@@ -56,8 +56,6 @@ namespace HospitalOfThePeople
             this.lblJob = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
             this.txtYearsOfExp = new System.Windows.Forms.TextBox();
             this.lblYearsOfExp = new System.Windows.Forms.Label();
             this.lblExpertise = new System.Windows.Forms.Label();
@@ -160,7 +158,7 @@ namespace HospitalOfThePeople
             // 
             // btnFire
             // 
-            this.btnFire.Location = new System.Drawing.Point(355, 198);
+            this.btnFire.Location = new System.Drawing.Point(356, 169);
             this.btnFire.Name = "btnFire";
             this.btnFire.Size = new System.Drawing.Size(85, 39);
             this.btnFire.TabIndex = 16;
@@ -169,7 +167,7 @@ namespace HospitalOfThePeople
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(218, 198);
+            this.btnUpdate.Location = new System.Drawing.Point(219, 169);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(85, 39);
             this.btnUpdate.TabIndex = 15;
@@ -178,7 +176,7 @@ namespace HospitalOfThePeople
             // 
             // btnHire
             // 
-            this.btnHire.Location = new System.Drawing.Point(84, 198);
+            this.btnHire.Location = new System.Drawing.Point(85, 169);
             this.btnHire.Name = "btnHire";
             this.btnHire.Size = new System.Drawing.Size(85, 39);
             this.btnHire.TabIndex = 14;
@@ -196,7 +194,7 @@ namespace HospitalOfThePeople
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(500, 198);
+            this.btnFind.Location = new System.Drawing.Point(501, 169);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(85, 39);
             this.btnFind.TabIndex = 17;
@@ -283,22 +281,6 @@ namespace HospitalOfThePeople
             this.lblUsername.TabIndex = 42;
             this.lblUsername.Text = "Username:";
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(76, 161);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(582, 22);
-            this.txtPassword.TabIndex = 13;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(6, 164);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(73, 17);
-            this.lblPassword.TabIndex = 44;
-            this.lblPassword.Text = "Password:";
-            // 
             // txtYearsOfExp
             // 
             this.txtYearsOfExp.Location = new System.Drawing.Point(435, 34);
@@ -331,17 +313,15 @@ namespace HospitalOfThePeople
             this.txtExpertise.Size = new System.Drawing.Size(168, 22);
             this.txtExpertise.TabIndex = 48;
             // 
-            // FmEmp
+            // FmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 258);
+            this.ClientSize = new System.Drawing.Size(670, 225);
             this.Controls.Add(this.txtExpertise);
             this.Controls.Add(this.lblExpertise);
             this.Controls.Add(this.txtYearsOfExp);
             this.Controls.Add(this.lblYearsOfExp);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txtJob);
@@ -369,7 +349,7 @@ namespace HospitalOfThePeople
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnHire);
             this.Controls.Add(this.lblIcn);
-            this.Name = "FmEmp";
+            this.Name = "FmEmployee";
             this.Text = "Employee Management";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -405,8 +385,6 @@ namespace HospitalOfThePeople
         private System.Windows.Forms.Label lblJob;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtYearsOfExp;
         private System.Windows.Forms.Label lblYearsOfExp;
         private System.Windows.Forms.Label lblExpertise;

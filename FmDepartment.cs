@@ -36,8 +36,8 @@ namespace HospitalOfThePeople
                 new DBFormHelper.AttributeType[] {
                     new DBFormHelper.AttributeType("DNo", OracleDbType.Char, 2, txtDNo)
                 },
-                //c##common_user.Department
-                "c##common_user.Department"
+                //hospital_dba.Department
+                "hospital_dba.Department"
             );
         }
 

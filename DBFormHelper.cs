@@ -64,7 +64,7 @@ namespace HospitalOfThePeople
 
         public DbDataReader Find(OracleConnection conn)
         {
-            return DBUtils.CreateSelectSql(null, ApplyValue(_attrs).Where(_ => _.Value != "").ToArray(), _tableName, conn).ExecuteReader();
+            return DBUtils.CreateSelectSql(null, ApplyValue(_attrs).Where(_ => _.Value.Length != 0).ToArray(), _tableName, conn).ExecuteReader();
         }
 
         public void Read(DbDataReader reader)

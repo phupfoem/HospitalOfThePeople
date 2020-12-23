@@ -10,8 +10,8 @@ namespace HospitalOfThePeople
         const string _host = "localhost";
         const int _port = 1521;
         const string _sid = "orcl";
-        const string _username = "c##common_user";
-        const string _passphrase = "commonpass";
+        const string _username = "gate_keeper";
+        const string _passphrase = "p1234567";
         readonly OracleConnection _conn = new OracleConnection(
             $"Data Source = ( DESCRIPTION = ( ADDRESS = (PROTOCOL = TCP)(HOST = {_host})(PORT = {_port}) ) ( CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = {_sid}) ) ); Password = {_passphrase}; User ID = {_username};"
         );
@@ -35,62 +35,76 @@ namespace HospitalOfThePeople
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string funcName = "c##common_user.FUN_IS_EMPLOYEE";
+            string funcName = "hospital_dba.FUN_Is_Employee";
+
+
             var parms = new DBUtils.AttributeType[]
             {
                 new DBUtils.AttributeType(":Result", OracleDbType.Varchar2, 200, null, ParameterDirection.ReturnValue),
-                new DBUtils.AttributeType(":i_username", OracleDbType.Varchar2, 200, txtUsername.Text, ParameterDirection.Input),
-                new DBUtils.AttributeType(":i_password", OracleDbType.Varchar2, 200, txtPassword.Text, ParameterDirection.Input),
-                new DBUtils.AttributeType(":o_emp_id", OracleDbType.Varchar2, 200, null, ParameterDirection.Output),
+                new DBUtils.AttributeType(":i_username", OracleDbType.Varchar2, 200, txtUsername.Text.Trim(), ParameterDirection.Input)
             };
+
+            OracleCommand cmd;
 
             try
             {
-                OracleCommand cmd = DBUtils.CreateFunctionCallSql(funcName, parms, _conn);
+                cmd = DBUtils.CreateFunctionCallSql(funcName, parms, _conn);
                 cmd.ExecuteNonQuery();
-                
-                string jobTitle = cmd.Parameters[":Result"].Value.ToString();
-                string empId = cmd.Parameters[":o_emp_id"].Value.ToString();
-
-                if (jobTitle == "")
-                {
-                    MessageBox.Show("Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                OracleConnection conn = new OracleConnection($"Data Source = ( DESCRIPTION = ( ADDRESS = (PROTOCOL = TCP)(HOST = {_host})(PORT = {_port}) ) ( CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = {_sid}) ) ); Password = {txtPassword.Text}; User ID = {txtUsername.Text};");
-                conn.Open();
-
-                Form fm = null;
-                switch (jobTitle)
-                {
-                    case "Nurse":
-                        fm = new FmAdmission(conn);
-                        break;
-                    case "Doctor":
-                        fm = new FmMainMenu(txtUsername.Text, txtPassword.Text);
-                        fm.Show();
-                        break;
-                    case "Manager":
-                        fm = new FmEmployee(conn);
-                        break;
-                    default:
-                        MessageBox.Show("Login success but interface unknown.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                }
-
-                if (fm != null)
-                {
-                    this.Hide();
-                    fm.ShowDialog();
-                    txtUsername.Text = txtPassword.Text = "";
-                    this.Show();
-                }
             }
             catch (Exception err)
             {
                 MessageBox.Show("Error" + err + err.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            var result = cmd.Parameters[":Result"].Value;
+            if (result == DBNull.Value)
+            {
+                MessageBox.Show("Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string jobTitle = result.ToString();
+
+            OracleConnection conn = new OracleConnection($"Data Source = ( DESCRIPTION = ( ADDRESS = (PROTOCOL = TCP)(HOST = {_host})(PORT = {_port}) ) ( CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = {_sid}) ) ); Password = {txtPassword.Text.Trim()}; User ID = {txtUsername.Text.Trim()};");
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                MessageBox.Show("Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Form fm = null;
+            switch (jobTitle)
+            {
+                case "Nurse":
+                    fm = new FmNurseMainMenu(conn);
+                    break;
+                case "Doctor":
+                    fm = new FmDoctorMainMenu(conn);
+                    fm.Show();
+                    break;
+                case "DBA":
+                    fm = new FmDbaMainMenu(conn);
+                    break;
+                default:
+                    MessageBox.Show("Login success but interface unknown.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
+
+            if (fm != null)
+            {
+                this.Hide();
+                fm.ShowDialog();
+                txtUsername.Text = txtPassword.Text = "";
+                this.Show();
+            }
+
+            conn.Close();
+            conn.Dispose();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

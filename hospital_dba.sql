@@ -14,7 +14,7 @@ DROP TABLE Patient;
 DROP TABLE Nurse;
 DROP TABLE Doctor;
 DROP TABLE Employee;
-DROP TABLE Equipment;hospital_dba
+DROP TABLE Equipment;
 DROP TABLE Room;
 DROP TABLE Department;
 

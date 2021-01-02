@@ -336,6 +336,7 @@ BEGIN
     RETURN ret;
 END;
 /
+
 INSERT INTO Department
 VALUES ('AD', 'Administration', 'Block B Floor 1-4');
 INSERT INTO Department
@@ -612,6 +613,7 @@ VALUES ('74251068', 'Phu', 'Nguyen', TO_DATE('1980-02-19', 'YYYY-MM-DD'), 'M', '
 
 INSERT INTO Employee
 VALUES ('29100569', 'Bach', 'Nguyen', TO_DATE('1978-12-25', 'YYYY-MM-DD'), 'M', '016545454', '77 Nguyen Trai', TO_DATE('2018-08-15', 'YYYY-MM-DD'), INTERVAL '2' YEAR, 1000, 'OP', 'Nurse',  'PfoemPfoem1');
+CREATE USER PfoemPfoem1 IDENTIFIED BY p1234567;
 GRANT ALL ON Admission TO PfoemPfoem1;
 GRANT ALL ON Patient TO PfoemPfoem1;
 GRANT ALL ON Guardian TO PfoemPfoem1;
@@ -619,6 +621,7 @@ GRANT ALL ON RoomAllocation TO PfoemPfoem1;
 
 INSERT INTO Employee
 VALUES ('82339743', 'Nhan', 'Nguyen', TO_DATE('1980-11-14', 'YYYY-MM-DD'), 'F', '01627984', NULL, TO_DATE('2007-08-15', 'YYYY-MM-DD'), INTERVAL '15' YEAR, 2500, 'CC', 'Doctor', 'PfoemPfoem2');
+CREATE USER PfoemPfoem2 IDENTIFIED BY p1234567;
 GRANT ALL ON Admission TO PfoemPfoem2;
 GRANT ALL ON Patient TO PfoemPfoem2;
 GRANT ALL ON Guardian TO PfoemPfoem2;
@@ -634,6 +637,7 @@ GRANT ALL ON SurgeryEquipment TO PfoemPfoem2;
 
 INSERT INTO Employee
 VALUES ('00111592', 'Phuc', 'Nguyen', TO_DATE('1973-05-15', 'YYYY-MM-DD'), 'F', '0146435454', NULL, TO_DATE('2010-12-28', 'YYYY-MM-DD'), INTERVAL '12' YEAR, 1500, 'OP', 'Nurse', 'PfoemPfoem3');
+CREATE USER PfoemPfoem3 IDENTIFIED BY p1234567;
 GRANT ALL ON Admission TO PfoemPfoem3;
 GRANT ALL ON Patient TO PfoemPfoem3;
 GRANT ALL ON Guardian TO PfoemPfoem3;
@@ -641,6 +645,7 @@ GRANT ALL ON RoomAllocation TO PfoemPfoem3;
 
 INSERT INTO Employee
 VALUES ('01118337', 'Huyen', 'Nguyen', TO_DATE('1989-07-09', 'YYYY-MM-DD'), 'F', '013568994', '123 Vo Van Kiet', TO_DATE('2020-12-28', 'YYYY-MM-DD'), INTERVAL '0' YEAR, 1500, 'EN','Nurse',  'PfoemPfoem4');
+CREATE USER PfoemPfoem4 IDENTIFIED BY p1234567;
 GRANT ALL ON Admission TO PfoemPfoem4;
 GRANT ALL ON Patient TO PfoemPfoem4;
 GRANT ALL ON Guardian TO PfoemPfoem4;
@@ -648,6 +653,7 @@ GRANT ALL ON RoomAllocation TO PfoemPfoem4;
 
 INSERT INTO Employee
 VALUES ('11567371', 'Huyen', 'Nguyen', TO_DATE('1995-03-09', 'YYYY-MM-DD'), 'F', '(+028) 323 5454', NULL, TO_DATE('2020-01-03', 'YYYY-MM-DD'), INTERVAL '0' YEAR, 1000, 'DI', 'Nurse', 'PfoemPfoem5');
+CREATE USER PfoemPfoem5 IDENTIFIED BY p1234567;
 GRANT ALL ON Admission TO PfoemPfoem5;
 GRANT ALL ON Patient TO PfoemPfoem5;
 GRANT ALL ON Guardian TO PfoemPfoem5;
@@ -655,6 +661,7 @@ GRANT ALL ON RoomAllocation TO PfoemPfoem5;
 
 INSERT INTO Employee
 VALUES ('71638093', 'Dan', 'Nguyen', TO_DATE('1968-01-18', 'YYYY-MM-DD'), 'M', '012232 35499', NULL, TO_DATE('2008-05-02', 'YYYY-MM-DD'), INTERVAL '20' YEAR, 5000, 'EN', 'Doctor', 'PfoemPfoem6');
+CREATE USER PfoemPfoem6 IDENTIFIED BY p1234567;
 GRANT ALL ON Admission TO PfoemPfoem6;
 GRANT ALL ON Patient TO PfoemPfoem6;
 GRANT ALL ON Guardian TO PfoemPfoem6;
@@ -670,6 +677,7 @@ GRANT ALL ON SurgeryEquipment TO PfoemPfoem6;
 
 INSERT INTO Employee
 VALUES ('38895424', 'Thai', 'Nguyen', TO_DATE('1971-01-29', 'YYYY-MM-DD'), 'M', '0124123456', NULL, TO_DATE('2005-06-02', 'YYYY-MM-DD'), INTERVAL '20' YEAR, 6500, 'GS', 'Doctor', 'PfoemPfoem7');
+CREATE USER PfoemPfoem7 IDENTIFIED BY p1234567;
 GRANT ALL ON Admission TO PfoemPfoem7;
 GRANT ALL ON Patient TO PfoemPfoem7;
 GRANT ALL ON Guardian TO PfoemPfoem7;

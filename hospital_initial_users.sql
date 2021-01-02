@@ -5,4 +5,3 @@ grant dba to hospital_dba;
 
 create user gate_keeper identified by p1234567;
 grant create session to gate_keeper;
-grant execute on hospital_dba.FUN_Is_Employee to gate_keeper;

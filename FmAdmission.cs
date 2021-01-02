@@ -9,7 +9,7 @@ namespace HospitalOfThePeople
     {
         readonly OracleConnection _conn;
 
-        readonly DBFormHelper _dbAdmissionHelper;
+        readonly DBFormHelper _dbHelper;
 
         public FmAdmission(OracleConnection conn)
         {
@@ -21,7 +21,7 @@ namespace HospitalOfThePeople
 
             _conn = conn;
 
-            _dbAdmissionHelper = new DBFormHelper(
+            _dbHelper = new DBFormHelper(
                 /*
 		            PIcn CHAR(8) NOT NULL,
 		            TimeIn DATE NOT NULL,
@@ -48,7 +48,7 @@ namespace HospitalOfThePeople
         {
             try
             {
-                _dbAdmissionHelper.Insert(_conn);
+                _dbHelper.Insert(_conn);
             }
             catch (Exception err)
             {
@@ -61,13 +61,13 @@ namespace HospitalOfThePeople
         {
             try
             {
-                using (DbDataReader reader = _dbAdmissionHelper.Find(_conn))
+                using (DbDataReader reader = _dbHelper.Find(_conn))
                 {
                     if (!reader.HasRows)
-                        MessageBox.Show("Employee not found.", "Error", MessageBoxButtons.OK);
+                        MessageBox.Show("Admission not found.", "Error", MessageBoxButtons.OK);
                     else
                     {
-                        _dbAdmissionHelper.Read(reader);
+                        _dbHelper.Read(reader);
                     }
                 }
             }
@@ -82,7 +82,7 @@ namespace HospitalOfThePeople
         {
             try
             {
-                _dbAdmissionHelper.Update(_conn);
+                _dbHelper.Update(_conn);
             }
             catch (Exception err)
             {
@@ -95,7 +95,7 @@ namespace HospitalOfThePeople
         {
             try
             {
-                _dbAdmissionHelper.Delete(_conn);
+                _dbHelper.Delete(_conn);
             }
             catch (Exception err)
             {

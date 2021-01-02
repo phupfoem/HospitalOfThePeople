@@ -85,7 +85,6 @@ namespace HospitalOfThePeople
                     break;
                 case "Doctor":
                     fm = new FmDoctorMainMenu(conn);
-                    fm.Show();
                     break;
                 case "DBA":
                     fm = new FmDbaMainMenu(conn);

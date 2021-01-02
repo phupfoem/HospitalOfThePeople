@@ -65,7 +65,7 @@ namespace HospitalOfThePeople
                 using (DbDataReader reader = _dbHelper.Find(_conn))
                 {
                     if (!reader.HasRows)
-                        MessageBox.Show("Employee not found.", "Error", MessageBoxButtons.OK);
+                        MessageBox.Show("Equipment not found.", "Error", MessageBoxButtons.OK);
                     else
                     {
                         _dbHelper.Read(reader);

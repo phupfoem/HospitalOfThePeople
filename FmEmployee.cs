@@ -20,6 +20,7 @@ namespace HospitalOfThePeople
             this.btnUpdate.Click += this.BtnUpdate_Click;
             this.btnFire.Click += this.BtnFire_Click;
             this.btnFind.Click += this.BtnFind_Click;
+            this.txtJob.Leave += this.TxtJob_OutOfFocus;
 
             _conn = conn;
 
@@ -97,11 +98,18 @@ namespace HospitalOfThePeople
 
         private void BtnHire_Click(object sender, EventArgs e)
         {
+            string jobTitle = txtJob.Text.Trim();
+            if (jobTitle.ToUpper() == "DBA")
+            {
+                MessageBox.Show("DBA cannot be added through this interface.", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
             try
             {
                 _dbEmployeeHelper.Insert(_conn);
 
-                if (txtJob.Text.Trim() == "Doctor")
+                if (jobTitle == "Doctor")
                     _dbDoctorHelper.Update(_conn);
             }
             catch (Exception err)
@@ -170,6 +178,12 @@ namespace HospitalOfThePeople
                 Console.WriteLine(err);
                 Console.WriteLine(err.StackTrace);
             }
+        }
+
+        private void TxtJob_OutOfFocus(object sender, EventArgs e)
+        {
+            string tmp = txtJob.Text.ToLower();
+            txtJob.Text = tmp[0].ToString().ToUpper() + tmp.Substring(1);
         }
     }
 }

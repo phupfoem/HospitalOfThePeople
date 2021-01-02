@@ -14,7 +14,7 @@ DROP TABLE Patient;
 DROP TABLE Nurse;
 DROP TABLE Doctor;
 DROP TABLE Employee;
-DROP TABLE Equipment;
+DROP TABLE Equipment;hospital_dba
 DROP TABLE Room;
 DROP TABLE Department;
 
@@ -608,8 +608,10 @@ VALUES ('CCOXY', 'Oxygen mask - tubes', 20, 'CC', 'C412');
 INSERT INTO Equipment
 VALUES ('GSSCI', 'Surgical scissors', 100, 'GS', 'C612');
 
+ALTER SESSION SET "_oracle_script"=True;
+
 INSERT INTO Employee
-VALUES ('74251068', 'Phu', 'Nguyen', TO_DATE('1980-02-19', 'YYYY-MM-DD'), 'M', '01623235454', NULL, TO_DATE('2020-08-15', 'YYYY-MM-DD'), INTERVAL '0' YEAR, 500, 'AD', 'DBA', 'PfoemPfoem0');
+VALUES ('74251068', 'Phu', 'Nguyen', TO_DATE('1980-02-19', 'YYYY-MM-DD'), 'M', '01623235454', NULL, TO_DATE('2020-08-15', 'YYYY-MM-DD'), INTERVAL '0' YEAR, 500, 'AD', 'DBA', 'hospital_dba');
 
 INSERT INTO Employee
 VALUES ('29100569', 'Bach', 'Nguyen', TO_DATE('1978-12-25', 'YYYY-MM-DD'), 'M', '016545454', '77 Nguyen Trai', TO_DATE('2018-08-15', 'YYYY-MM-DD'), INTERVAL '2' YEAR, 1000, 'OP', 'Nurse',  'PfoemPfoem1');
